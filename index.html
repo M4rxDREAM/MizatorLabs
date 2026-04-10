@@ -138,18 +138,21 @@ nav a:hover{
   margin:10px 0;
 }
 
-.card button{
+/* BOTÓN DESCARGA */
+.download-btn{
+  display:inline-block;
   margin-top:10px;
-  padding:10px;
+  padding:10px 14px;
   border:none;
   border-radius:8px;
   background:var(--accent2);
   color:white;
   cursor:pointer;
+  text-decoration:none;
   transition:0.3s;
 }
 
-.card button:hover{
+.download-btn:hover{
   transform:scale(1.05);
 }
 
@@ -160,7 +163,7 @@ footer{
   color:var(--muted);
 }
 
-/* FADE ANIM */
+/* FADE */
 .fade{
   opacity:0;
   transform:translateY(30px);
@@ -187,7 +190,9 @@ footer{
 <section class="hero fade">
   <h1>Software creado con precisión por <span>Mizator</span></h1>
   <p>Optimización, herramientas y proyectos reales diseñados para rendimiento ⚡</p>
-  <button onclick="scrollToProjects()">Explorar</button>
+  <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+    Explorar
+  </button>
 </section>
 
 <section class="projects fade" id="projects">
@@ -198,7 +203,13 @@ footer{
     <div class="card">
       <h3>OptiMizator</h3>
       <p>Optimiza tu PC de forma rápida y segura</p>
-      <button onclick="descargar()">Descargar OptiMizator ⚡</button>
+
+      <!-- 🔥 DESCARGA REAL -->
+      <a class="download-btn"
+         href="https://github.com/M4rxDREAM/MizatorLabs/releases/download/MizatorLabs/optimizator.exe"
+         download>
+        Descargar OptiMizator ⚡
+      </a>
     </div>
 
     <div class="card">
@@ -215,22 +226,6 @@ footer{
 </footer>
 
 <script>
-function descargar(){
-  const url = "https://github.com/M4rxDREAM/MizatorLabs/releases/download/MizatorLabs/optimizator.exe";
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "OptiMizator.exe";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
-function scrollToProjects(){
-  document.getElementById("projects").scrollIntoView({behavior:"smooth"});
-}
-
-/* Animación al hacer scroll */
 const elements = document.querySelectorAll('.fade');
 
 window.addEventListener('scroll', () => {
@@ -240,6 +235,11 @@ window.addEventListener('scroll', () => {
       el.classList.add('visible');
     }
   });
+});
+</script>
+
+</body>
+</html>
 });
 </script>
 
