@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MizatorLabs</title>
 
+<style>
+:root{
+  --bg:#020617;
+  --card:#0f172a;
+  --accent:#38bdf8;
+  --accent2:#22c55e;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #0f172a, #020617);
+  color:var(--text);
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  backdrop-filter: blur(10px);
+}
+
+.logo{
+  font-weight:bold;
+  color:var(--accent);
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  margin-left:20px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  margin-top:100px;
+}
+
+.hero h1{
+  font-size:48px;
+}
+
+.hero span{
+  color:var(--accent2);
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:500px;
+  margin:auto;
+}
+
+.hero button{
+  margin-top:25px;
+  padding:14px 30px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--accent2),#16a34a);
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.hero button:hover{
+  transform:scale(1.05);
+}
+
+/* CARDS */
+.container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:100px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:15px;
+  width:260px;
+  text-align:center;
+  transition:0.3s;
+  border:1px solid #1e293b;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px rgba(56,189,248,0.2);
+}
+
+.card h3{
+  color:var(--accent);
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.card button{
+  margin-top:10px;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:var(--accent2);
+  color:white;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  margin-top:120px;
+  padding:20px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">MizatorLabs</div>
+  <div>
+    <a href="#">Inicio</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Sobre mí</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Construyendo software por <span>Mizator</span></h1>
+  <p>Herramientas, optimización y proyectos reales hechos con precisión ⚡</p>
+  <button onclick="scrollToProjects()">Ver proyectos</button>
+</section>
+
+<!-- PROYECTOS -->
+<section class="container" id="projects">
+
+  <div class="card">
+    <h3>OptiMizator</h3>
+    <p>Optimiza tu PC de forma rápida y segura</p>
+    <button onclick="descargar()">Descargar</button>
+  </div>
+
+  <div class="card">
+    <h3>Próximo proyecto</h3>
+    <p>En desarrollo...</p>
+    <button disabled>Próximamente</button>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 MizatorLabs — by Mizator
+</footer>
+
+<script>
+function descargar(){
+  window.location.href = "https://github.com/TUUSUARIO/TUREPO/releases/download/v1.0/optimizador.exe";
+}
+
+function scrollToProjects(){
+  document.getElementById("projects").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
