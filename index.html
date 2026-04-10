@@ -35,6 +35,7 @@ nav{
   width:100%;
   backdrop-filter: blur(12px);
   background: rgba(2,6,23,0.5);
+  z-index:100;
 }
 
 .logo{
@@ -145,6 +146,11 @@ nav a:hover{
   background:var(--accent2);
   color:white;
   cursor:pointer;
+  transition:0.3s;
+}
+
+.card button:hover{
+  transform:scale(1.05);
 }
 
 /* FOOTER */
@@ -192,7 +198,7 @@ footer{
     <div class="card">
       <h3>OptiMizator</h3>
       <p>Optimiza tu PC de forma rápida y segura</p>
-      <button onclick="descargar()">Descargar</button>
+      <button onclick="descargar()">Descargar OptiMizator ⚡</button>
     </div>
 
     <div class="card">
@@ -210,7 +216,14 @@ footer{
 
 <script>
 function descargar(){
-  window.location.href="https://github.com/TUUSUARIO/TUREPO/releases/download/v1.0/optimizador.exe";
+  const url = "https://github.com/M4rxDREAM/MizatorLabs/releases/download/MizatorLabs/optimizator.exe";
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "OptiMizator.exe";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 
 function scrollToProjects(){
@@ -218,12 +231,12 @@ function scrollToProjects(){
 }
 
 /* Animación al hacer scroll */
-const elements=document.querySelectorAll('.fade');
+const elements = document.querySelectorAll('.fade');
 
-window.addEventListener('scroll',()=>{
-  elements.forEach(el=>{
-    const pos=el.getBoundingClientRect().top;
-    if(pos<window.innerHeight-100){
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const pos = el.getBoundingClientRect().top;
+    if(pos < window.innerHeight - 100){
       el.classList.add('visible');
     }
   });
